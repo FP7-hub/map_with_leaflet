@@ -1,0 +1,33 @@
+---
+title: "Francesco's"
+author: "Francesco Pipitone"
+date: "`r format(Sys.Date(), '%d %B %Y')`"
+output: html_notebook
+runtime: shinyg
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+#install.packages("shiny")
+#install.packages("leaflet")
+library(shiny)
+library(leaflet)
+
+ui <- fluidPage(
+  leafletOutput("map")
+)
+
+server <- function(input, output) {
+  output$mappa <- renderLeaflet({
+    leaflet() %>%
+      addTiles() %>%
+      addMarkers(lat = 41.89846,
+                 lng = 12.48929,
+                 popup = "Where Francesco works")
+  })
+}
+
+shinyApp(ui = ui, server = server)
+
+```
