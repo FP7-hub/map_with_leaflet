@@ -19,7 +19,7 @@ ui <- fluidPage(
 )
 
 server <- function(input, output) {
-  output$mappa <- renderLeaflet({
+  output$map <- renderLeaflet({
     leaflet() %>%
       addTiles() %>%
       addMarkers(lat = 41.89846,
