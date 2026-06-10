@@ -1,0 +1,26 @@
+---
+title: "Francesco's"
+author: "Francesco Pipitone"
+date: "`r format(Sys.Date(), '%d %B %Y')`"
+output: html_document
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+#install.packages("shiny","leaflet")
+library(leaflet)
+
+mappa <- leaflet() %>%
+  addTiles() %>%
+  addMarkers(lat = 41.89846,
+             lng = 12.48929,
+             popup = "Where Francesco works")
+
+#install.packages("htmlwidgets")
+library(htmlwidgets)
+saveWidget(mappa, "index.html", selfcontained = TRUE)
+
+
+```
