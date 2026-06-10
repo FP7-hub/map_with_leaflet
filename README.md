@@ -1,1 +1,1 @@
-open the map (http://127.0.0.1:4285/)
+open the map clicking on index.html
